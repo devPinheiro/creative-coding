@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Coding</title>
+</head>
+<body>
+    <h1>Hello World - Creative Coding</h1>
+    <div style="display: flex; justify-content: center; flex-direction: column; gap: 15;">
+        <canvas id="play-ground-01" width="800" height="800" >
+        </canvas>
+        <canvas id="play-ground-02" width="1000" height="800" >
+        </canvas>
+    </div>
+    
+</body>
+<script>
+  const canvas = document.querySelector('#play-ground-01');
+  const playgroundCanvas = document.querySelector('#play-ground-02');
+    const ctx = canvas.getContext('2d');
+    // bulk rectangles
+    ctx.fillStyle = 'red';
+    ctx.fillRect(100, 100, 100, 100);
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(100, 100, 80, 80);
+    ctx.fillStyle = 'green';
+    ctx.fillRect(100, 100, 60, 60);
+    
+    // boxed rectangle
+    ctx.fillStyle = 'black';
+    ctx.lineWidth = 3;
+    ctx.rect(300, 100, 200, 200);
+    ctx.rect(305, 105, 190, 190);
+    ctx.rect(308, 108, 185, 185);
+    ctx.stroke();
+
+    // boxed rectangle
+    ctx.beginPath();
+    ctx.fillStyle = 'black';
+    ctx.lineWidth = 3;
+    ctx.rect(100, 500, 200, 200);
+    ctx.rect(105, 505, 190, 190);
+    ctx.stroke();
+    ctx.closePath();
+    
+      
+
+    // circle
+    ctx.beginPath();
+    ctx.arc(400, 410, 100, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.arc(400,410, 95, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.closePath();
+   
+    // star
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.moveTo(600, 600); 
+    ctx.lineTo(620, 650);  
+    ctx.lineTo(670, 650);
+    ctx.lineTo(630, 670);
+    ctx.lineTo(650, 720);
+    ctx.lineTo(600, 690);
+    ctx.lineTo(550, 720);
+    ctx.lineTo(570, 670);
+    ctx.lineTo(530, 650);
+    ctx.lineTo(580, 650);
+    ctx.lineTo(600, 600);
+    ctx.stroke();
+    ctx.closePath();
+
+    const context = playgroundCanvas.getContext('2d')
+    const drawBoxes = () => {
+        const width = 100
+        const height = 100
+        const gap = 20
+        let x,y
+        for(let i = 0; i < 5; i++) {
+          
+            for(let j = 0; j < 6; j++) {
+                y = 10 + (height + gap) * j
+                x = 80 + (width + gap) * i
+                context.beginPath();  
+                context.rect(x , y , width, height); 
+                context.stroke();   
+                context.closePath();  
+                
+                if(Math.random() > 0.2) {
+                context.lineWidth = 2;
+                context.beginPath();
+                context.rect(x + 4, y + 4, width - 8, height - 8); 
+                context.stroke();  
+                context.closePath();   
+            
+            } 
+            }    
+          
+          
+        }
+
+       
+       
+    }
+    
+
+    drawBoxes();// call the function
+
+</script>
+</html>
