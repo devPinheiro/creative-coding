@@ -41,6 +41,15 @@ const sketch = () => {
       context.rect(-w * 0.5, -h * 0.5, w, h );
       context.fill();
       context.restore()
+
+      context.save()
+      context.beginPath()
+      context.arc(cx, cy, radius * random.range(0.5, 1.5), 0, Math.PI * 2, false)
+      context.lineWidth = 4
+      context.strokeStyle = 'black'
+      context.stroke()
+      context.restore()
+
     }
   
     

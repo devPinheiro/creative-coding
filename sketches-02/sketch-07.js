@@ -23,27 +23,7 @@ const sketch = () => {
    
     context.fillStyle = 'black';
    
-    
-    const clock = 24
 
-    for (let i = 0; i < clock; i++) {
-      context.save()
-      const slice = math.degToRad(360 / clock);
-      const angle = slice * i;
-
-      x = cx + radius * Math.sin(angle);
-      y = cy + radius * Math.cos(angle);
-      context.translate(x, y);
-      context.rotate(-angle);
-      context.scale(random.range(2, 0.5), 1);
-
-      context.beginPath();
-      context.rect(-w * 0.5, -h * 0.5, w, h );
-      context.fill();
-      context.restore()
-    }
-  
-    
   };
 };
 
